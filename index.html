@@ -15,12 +15,10 @@
       --text:#f3f6ff;
       --accent:#7c5cff;
       --accent2:#22d3ee;
-      --ok:#6ee7b7;
-      --warn:#ffd16b;
       --shadow: 0 14px 46px rgba(0,0,0,.55);
       --radius: 14px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{ box-sizing:border-box; }
@@ -35,33 +33,23 @@
     }
 
     a{ color: inherit; text-decoration: none; }
-    ::selection{ background: rgba(124,92,255,.35); }
 
     .wrap{ max-width: 1080px; margin: 0 auto; padding: 18px 16px 70px; }
 
-    /* ----- top bar ----- */
     .top{
       display:flex; align-items: center; justify-content: space-between;
       gap: 12px; padding: 10px 0 14px;
       position: sticky; top: 0; z-index: 5;
       background: linear-gradient(180deg, rgba(7,10,20,.98), rgba(7,10,20,.92));
-      backdrop-filter: blur(10px);
     }
+
     .brand{ display:flex; gap: 10px; align-items: center; }
     .logo{
       width: 38px; height: 38px; border-radius: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 24px rgba(124,92,255,.22);
-      position: relative; overflow: hidden;
     }
-    .logo::after{
-      content:"";
-      position:absolute; inset: 9px;
-      border: 2px solid rgba(255,255,255,.85);
-      border-radius: 10px;
-      opacity: .9;
-    }
-    .brand h1{ font-size: 15px; letter-spacing: .2px; margin:0; }
+
+    .brand h1{ font-size: 15px; margin:0; }
     .brand p{ margin:0; font-size: 12px; color: var(--muted); }
 
     .nav{ display:flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
@@ -73,48 +61,76 @@
       padding: 8px 12px;
       font-size: 13px;
       cursor: pointer;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-      user-select: none;
     }
-    .btn:hover{ background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.28); }
-    .btn:active{ transform: scale(.98); }
 
-    /* ----- sections ----- */
     .grid{ display:grid; gap: 14px; }
-    .hero{ display:grid; gap: 12px; padding: 18px; border-radius: var(--radius); background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.14); box-shadow: var(--shadow); }
-    .kicker{ font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,246,255,.82); }
-    .title{ font-size: clamp(22px, 3.6vw, 34px); letter-spacing: -0.2px; margin: 2px 0; }
+
+    .hero{
+      display:grid; gap: 12px; padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .title{ font-size: clamp(22px, 3.6vw, 34px); margin: 2px 0; }
     .sub{ margin: 0; color: var(--muted); max-width: 72ch; }
 
     .chips{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-    .chip{ font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); background: rgba(7,10,20,.55); color: rgba(243,246,255,.92); }
+    .chip{ font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); }
 
     .two{ display:grid; gap: 12px; grid-template-columns: 1.2fr .8fr; }
     @media (max-width: 860px){ .two{ grid-template-columns: 1fr; } }
 
-    .card{ padding: 14px; border-radius: var(--radius); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); }
-    .card h2{ margin: 0 0 8px; font-size: 16px; letter-spacing: .2px; }
-    .mini{ font-size: 13px; color: var(--muted); margin: 0; }
+    .card{
+      padding: 14px; border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+    }
 
-    .list{ margin: 8px 0 0; padding-left: 18px; color: rgba(243,246,255,.9); }
-    .list li{ margin: 6px 0; }
+    .list{ margin: 8px 0 0; padding-left: 18px; }
 
     .proj{ display:grid; gap: 10px; }
+
     .pitem{
       padding: 12px; border-radius: 12px;
-      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.16);
     }
-    .phead{ display:flex; gap: 10px; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
-    .pname{ margin: 0; font-size: 15px; letter-spacing: .15px; }
-    .ptag{ font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: rgba(7,10,20,.55); color: rgba(243,246,255,.9); }
 
-    .contact{ display:grid; gap: 10px; }
-    .field{ display:flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    .label{ font-size: 12px; color: rgba(243,246,255,.75); min-width: 80px; }
-    .value{ font-family: var(--mono); font-size: 13px; letter-spacing: .2px; }
+    .phead{ display:flex; justify-content: space-between; flex-wrap: wrap; }
+    .pname{ margin: 0; font-size: 15px; }
 
-    .footer{ margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.14); color: rgba(243,246,255,.7); font-size: 12px; display:flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .ptag{ font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); }
+
+    /* NEW PROJECT LINK BUTTONS */
+    .plinks{
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .plink{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(124,92,255,.25);
+      color: #fff;
+      transition: .2s ease;
+    }
+
+    .plink:hover{
+      background: rgba(124,92,255,.45);
+      transform: translateY(-2px);
+    }
+
+    .footer{
+      margin-top: 14px; padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      font-size: 12px;
+      display:flex; justify-content: space-between; flex-wrap: wrap;
+    }
   </style>
 </head>
 
@@ -122,15 +138,14 @@
   <div class="wrap">
 
     <div class="top">
-      <div class="brand" aria-label="Portfolio identity">
-        <div class="logo" aria-hidden="true"></div>
+      <div class="brand">
+        <div class="logo"></div>
         <div>
           <h1>Jeshval Mihir Rameshbhai</h1>
           <p>Backend Developer (PHP · Laravel · MySQL)</p>
         </div>
       </div>
-
-      <div class="nav" aria-label="Quick navigation">
+      <div class="nav">
         <button class="btn" onclick="go('top')">Home</button>
         <button class="btn" onclick="go('skills')">Skills</button>
         <button class="btn" onclick="go('projects')">Projects</button>
@@ -139,90 +154,69 @@
     </div>
 
     <div id="top" class="grid">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="kicker">AVAILABLE FOR FREELANCE WORK</div>
-        <h2 id="hero-title" class="title">Laravel Backend Developer — APIs, Admin Panels & Data-Driven Web Apps</h2>
-        <p class="sub">
-          I build reliable backend systems with clean architecture: secure authentication, structured APIs,
-          efficient MySQL design, and admin dashboards that make operations simple and scalable.
-        </p>
-        <div class="chips" aria-label="core strengths">
+      <section class="hero">
+        <h2 class="title">Laravel Backend Developer — APIs, Admin Panels & Data-Driven Web Apps</h2>
+        <p class="sub">I build reliable backend systems with clean architecture and scalable database design.</p>
+        <div class="chips">
           <span class="chip">Laravel</span>
           <span class="chip">REST APIs</span>
-          <span class="chip">MySQL Design</span>
+          <span class="chip">MySQL</span>
           <span class="chip">Admin Panels</span>
-          <span class="chip">Performance Tuning</span>
         </div>
       </section>
 
-      <div class="two">
-        <section id="skills" class="card" aria-labelledby="skills-title">
-          <h2 id="skills-title">What I deliver</h2>
-          <p class="mini">Fast turnarounds with clean code, clear milestones, and easy handover.</p>
-          <ul class="list">
-            <li>Custom Laravel development (modules, dashboards, role-based access)</li>
-            <li>REST APIs + integrations (payments, shipping, third-party services)</li>
-            <li>MySQL schema design, indexing, query optimization</li>
-            <li>Bug fixing, refactoring, and security improvements (validation, auth)</li>
-            <li>Order management / inventory logic (products, stock, invoices)</li>
-          </ul>
-        </section>
+      <section id="skills" class="card">
+        <h2>What I deliver</h2>
+        <ul class="list">
+          <li>Custom Laravel development</li>
+          <li>REST APIs + integrations</li>
+          <li>Database optimization</li>
+          <li>Bug fixing & security improvements</li>
+        </ul>
+      </section>
 
-        <aside class="card" aria-labelledby="why-title">
-          <h2 id="why-title">How I work</h2>
-          <p class="mini">You get a structured process: requirements → build → test → delivery.</p>
-          <ul class="list">
-            <li>Clear scope & timeline (milestones)</li>
-            <li>Quality checks (edge cases + validations)</li>
-            <li>Clean Git-friendly commits (if needed)</li>
-          </ul>
-        </aside>
-      </div>
-
-      <section id="projects" class="card" aria-labelledby="projects-title">
-        <h2 id="projects-title">Selected projects (replace with your real work)</h2>
-        <p class="mini">Tip: paste 2–4 real projects (even small ones). Add a short result line (faster, cleaner, fewer bugs).</p>
-
+      <!-- PROJECTS -->
+      <section id="projects" class="card">
+        <h2>Live Projects</h2>
         <div class="proj">
+
+          <!-- PROJECT 1 -->
           <div class="pitem">
             <div class="phead">
-              <h3 class="pname">E-Commerce Backend (Laravel + MySQL)</h3>
-              <span class="ptag">Orders • Stock • Invoices</span>
+              <h3 class="pname">AC Service Booking System</h3>
+              <span class="ptag">Laravel • Booking</span>
             </div>
-            <p class="mini">Built product + stock tracking, order items pipeline, and invoice generation with role-based admin access.</p>
+            <p>Online AC service booking platform with service management and customer requests.</p>
+            <div class="plinks">
+              <a href="https://myac-com.onrender.com" target="_blank" class="plink">🔗 Live Demo</a>
+            </div>
           </div>
 
+          <!-- PROJECT 2 -->
           <div class="pitem">
             <div class="phead">
-              <h3 class="pname">Admin Panel & Reporting Dashboard</h3>
-              <span class="ptag">Charts • Filters</span>
+              <h3 class="pname">Online Shoes Store</h3>
+              <span class="ptag">E-Commerce</span>
             </div>
-            <p class="mini">Implemented secure admin workflows (users, permissions) and optimized queries for fast reporting on large data.</p>
+            <p>E-commerce shoe store with product listings, cart system, and order flow.</p>
+            <div class="plinks">
+              <a href="https://myshoes-com.onrender.com/" target="_blank" class="plink">🔗 Live Demo</a>
+            </div>
           </div>
 
-          <div class="pitem">
-            <div class="phead">
-              <h3 class="pname">REST API for Mobile/Web Clients</h3>
-              <span class="ptag">JWT • Validation</span>
-            </div>
-            <p class="mini">Designed versioned endpoints with consistent responses, input validation, and clear error handling.</p>
-          </div>
         </div>
       </section>
 
-      <section id="contact" class="card" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact & quick details</h2>
-        <div class="contact">
-          <div class="field"><div class="label">Email</div><div class="value">jeswalmihir97@gmail.com</div></div>
-          <div class="field"><div class="label">Phone</div><div class="value">+91 95128 23483</div></div>
-          <div class="field"><div class="label">Location</div><div class="value">Gujarat, India</div></div>
-          <div class="field"><div class="label">Availability</div><div class="value">Freelance (part-time / full-time)</div></div>
-        </div>
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p>Email: jeswalmihir97@gmail.com</p>
+        <p>Phone: +91 95128 23483</p>
+        <p>Location: Gujarat, India</p>
       </section>
 
       <div class="footer">
-        <div>© <span id="yr"></span> Jeshval Mihir Rameshbhai — Backend Development</div>
-        <div>Fast communication · Clean delivery · Reliable support</div>
+        <div>© <span id="yr"></span> Jeshval Mihir Rameshbhai</div>
+        <div>Laravel Backend Developer</div>
       </div>
     </div>
   </div>
@@ -230,8 +224,7 @@
   <script>
     function go(id){
       const el = document.getElementById(id);
-      if(!el) return;
-      el.scrollIntoView({behavior:"smooth", block:"start"});
+      if(el) el.scrollIntoView({behavior:"smooth"});
     }
     document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
