@@ -1,232 +1,294 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b1020" />
-  <title>Jeshval Mihir Rameshbhai | Laravel Backend Developer</title>
-  <meta name="description" content="Laravel Backend Developer (PHP & MySQL) — APIs, admin panels, e-commerce features, database design, and performance optimization." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeshval Mihir | Full Stack Web Developer</title>
 
-  <style>
-    :root{
-      --bg:#070a14;
-      --panel:#0c1022;
-      --muted:#b6bed9;
-      --text:#f3f6ff;
-      --accent:#7c5cff;
-      --accent2:#22d3ee;
-      --shadow: 0 14px 46px rgba(0,0,0,.55);
-      --radius: 14px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
-      --sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: var(--sans);
-      background: radial-gradient(1200px 900px at 15% 5%, #16308a33, transparent 55%),
-                  radial-gradient(1000px 800px at 110% 10%, #22d3ee22, transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
+body{
+    background:#0b1020;
+    color:white;
+}
 
-    a{ color: inherit; text-decoration: none; }
+header{
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#0f172a;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-    .wrap{ max-width: 1080px; margin: 0 auto; padding: 18px 16px 70px; }
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#38bdf8;
+}
 
-    .top{
-      display:flex; align-items: center; justify-content: space-between;
-      gap: 12px; padding: 10px 0 14px;
-      position: sticky; top: 0; z-index: 5;
-      background: linear-gradient(180deg, rgba(7,10,20,.98), rgba(7,10,20,.92));
-    }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
 
-    .brand{ display:flex; gap: 10px; align-items: center; }
-    .logo{
-      width: 38px; height: 38px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-    }
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:50px 8%;
+    gap:50px;
+}
 
-    .brand h1{ font-size: 15px; margin:0; }
-    .brand p{ margin:0; font-size: 12px; color: var(--muted); }
+.hero-content{
+    flex:1;
+}
 
-    .nav{ display:flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-    .btn{
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      cursor: pointer;
-    }
+.hero-content h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
 
-    .grid{ display:grid; gap: 14px; }
+.hero-content span{
+    color:#38bdf8;
+}
 
-    .hero{
-      display:grid; gap: 12px; padding: 18px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-    }
+.hero-content p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
 
-    .title{ font-size: clamp(22px, 3.6vw, 34px); margin: 2px 0; }
-    .sub{ margin: 0; color: var(--muted); max-width: 72ch; }
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#38bdf8;
+    color:#000;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    margin-right:15px;
+}
 
-    .chips{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-    .chip{ font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); }
+.btn-outline{
+    background:transparent;
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+}
 
-    .two{ display:grid; gap: 12px; grid-template-columns: 1.2fr .8fr; }
-    @media (max-width: 860px){ .two{ grid-template-columns: 1fr; } }
+.hero-image{
+    flex:1;
+    text-align:center;
+}
 
-    .card{
-      padding: 14px; border-radius: var(--radius);
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-    }
+.hero-image img{
+    width:380px;
+    max-width:100%;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(56,189,248,.4);
+}
 
-    .list{ margin: 8px 0 0; padding-left: 18px; }
+.section{
+    padding:80px 8%;
+}
 
-    .proj{ display:grid; gap: 10px; }
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
 
-    .pitem{
-      padding: 12px; border-radius: 12px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.16);
-    }
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
 
-    .phead{ display:flex; justify-content: space-between; flex-wrap: wrap; }
-    .pname{ margin: 0; font-size: 15px; }
+.skill-box{
+    background:#111827;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+}
 
-    .ptag{ font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); }
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
 
-    /* NEW PROJECT LINK BUTTONS */
-    .plinks{
-      margin-top: 8px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.project-card{
+    background:#111827;
+    padding:25px;
+    border-radius:15px;
+}
 
-    .plink{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.25);
-      background: rgba(124,92,255,.25);
-      color: #fff;
-      transition: .2s ease;
-    }
+.project-card h3{
+    margin-bottom:10px;
+}
 
-    .plink:hover{
-      background: rgba(124,92,255,.45);
-      transform: translateY(-2px);
-    }
+.project-card a{
+    color:#38bdf8;
+}
 
-    .footer{
-      margin-top: 14px; padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,.14);
-      font-size: 12px;
-      display:flex; justify-content: space-between; flex-wrap: wrap;
-    }
-  </style>
+.contact{
+    text-align:center;
+}
+
+footer{
+    background:#0f172a;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-content h1{
+    font-size:38px;
+}
+
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <div class="top">
-      <div class="brand">
-        <div class="logo"></div>
-        <div>
-          <h1>Jeshval Mihir Rameshbhai</h1>
-          <p>Backend Developer (PHP · Laravel · MySQL)</p>
-        </div>
-      </div>
-      <div class="nav">
-        <button class="btn" onclick="go('top')">Home</button>
-        <button class="btn" onclick="go('skills')">Skills</button>
-        <button class="btn" onclick="go('projects')">Projects</button>
-        <button class="btn" onclick="go('contact')">Contact</button>
-      </div>
+<header>
+    <div class="logo">JM</div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Hi, I'm <span>Jeshval Mihir</span>
+        </h1>
+
+        <h2>Full Stack Web Developer</h2>
+
+        <p>
+            I build modern websites, business portals,
+            e-commerce stores and custom web applications
+            using Laravel, PHP, MySQL, WordPress,
+            JavaScript and Bootstrap.
+        </p>
+
+        <a href="#projects" class="btn">
+            View Projects
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+            Hire Me
+        </a>
+
     </div>
 
-    <div id="top" class="grid">
-      <section class="hero">
-        <h2 class="title">Laravel Backend Developer — APIs, Admin Panels & Data-Driven Web Apps</h2>
-        <p class="sub">I build reliable backend systems with clean architecture and scalable database design.</p>
-        <div class="chips">
-          <span class="chip">Laravel</span>
-          <span class="chip">REST APIs</span>
-          <span class="chip">MySQL</span>
-          <span class="chip">Admin Panels</span>
-        </div>
-      </section>
-
-      <section id="skills" class="card">
-        <h2>What I deliver</h2>
-        <ul class="list">
-          <li>Custom Laravel development</li>
-          <li>REST APIs + integrations</li>
-          <li>Database optimization</li>
-          <li>Bug fixing & security improvements</li>
-        </ul>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="card">
-        <h2>Live Projects</h2>
-        <div class="proj">
-
-          <!-- PROJECT 1 -->
-          <div class="pitem">
-            <div class="phead">
-              <h3 class="pname">AC Service Booking System</h3>
-              <span class="ptag">Laravel • Booking</span>
-            </div>
-            <p>Online AC service booking platform with service management and customer requests.</p>
-            <div class="plinks">
-              <a href="https://myac-com.onrender.com" target="_blank" class="plink">🔗 Live Demo</a>
-            </div>
-          </div>
-
-          <!-- PROJECT 2 -->
-          <div class="pitem">
-            <div class="phead">
-              <h3 class="pname">Online Shoes Store</h3>
-              <span class="ptag">E-Commerce</span>
-            </div>
-            <p>E-commerce shoe store with product listings, cart system, and order flow.</p>
-            <div class="plinks">
-              <a href="https://myshoes-com.onrender.com/" target="_blank" class="plink">🔗 Live Demo</a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-        <p>Email: jeswalmihir97@gmail.com</p>
-        <p>Phone: +91 95128 23483</p>
-        <p>Location: Gujarat, India</p>
-      </section>
-
-      <div class="footer">
-        <div>© <span id="yr"></span> Jeshval Mihir Rameshbhai</div>
-        <div>Laravel Backend Developer</div>
-      </div>
+    <div class="hero-image">
+        <img src="images/profile.png" alt="Jeshval Mihir">
     </div>
-  </div>
 
-  <script>
-    function go(id){
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:"smooth"});
-    }
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  </script>
+</section>
+
+<section id="about" class="section">
+
+    <h2 class="section-title">About Me</h2>
+
+    <p style="text-align:center;max-width:900px;margin:auto;">
+        I am a Full Stack Web Developer specializing in Laravel,
+        PHP, MySQL, WordPress, Bootstrap and JavaScript.
+        I develop responsive websites, e-commerce platforms,
+        booking systems and business applications with a focus
+        on performance, security and user experience.
+    </p>
+
+</section>
+
+<section id="skills" class="section">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills">
+
+<div class="skill-box">Laravel</div>
+<div class="skill-box">PHP</div>
+<div class="skill-box">MySQL</div>
+<div class="skill-box">WordPress</div>
+<div class="skill-box">JavaScript</div>
+<div class="skill-box">Bootstrap</div>
+<div class="skill-box">HTML5</div>
+<div class="skill-box">CSS3</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="section">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+<h3>ApnaBag.com</h3>
+<p>E-Commerce Website with shopping cart and checkout.</p>
+</div>
+
+<div class="project-card">
+<h3>MyShoes.com</h3>
+<p>Online shoe store with responsive design.</p>
+</div>
+
+<div class="project-card">
+<h3>My AC.com</h3>
+<p>AC service booking and management system.</p>
+</div>
+
+<div class="project-card">
+<h3>Metalco</h3>
+<p>Corporate business website with product showcase.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="section contact">
+
+<h2 class="section-title">Contact Me</h2>
+
+<p>Email: jeswalmihir97@gmail.com</p>
+<p>Phone: +91 9512823483</p>
+<p>Location: Gujarat, India</p>
+
+</section>
+
+<footer>
+© 2026 Jeshval Mihir | Full Stack Web Developer
+</footer>
+
 </body>
 </html>
